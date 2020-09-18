@@ -1,0 +1,23 @@
+.users__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.users__avatar {
+    display: flex;
+    flex-direction: row;
+}
+
+.users__avatarAndFollowButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+.users__nameAndStatus {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 60px 0px 10px;
+}

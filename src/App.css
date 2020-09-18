@@ -1,6 +1,6 @@
 .app__container {
-  align-items: center;  
-  justify-content: center;
+
+
 }
 .app__header {
   display: flex;
@@ -9,22 +9,48 @@
   border: 1px solid lightgray;
   padding: 20px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
-.app__headerControls div {
+.app__headerControls {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
-.app__headerControls img{
-  width: 50%;
+.app__logo{
+  width: 6%;
+  min-width: 150px;
   object-fit: contain;
 }
 .app__posts {
   display: flex;
   justify-content: center;
-  padding: 20px;
-  align-items: center;
+
+}
+
+
+.app__mainPostsContainer {
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+.app__userSuggestions {
+  margin-left: 20px;
+}
+
+@media (max-width: 414px ) {
+  .app__header {
+    display: flex;
+    flex-direction: column;
+  }
+  .app__posts  {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app__userSuggestions {
+    display: none;
+  }
 }
