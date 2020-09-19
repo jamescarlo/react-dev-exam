@@ -4,13 +4,20 @@ import {
     Button
 } from '@material-ui/core'
 import '../Users.css'
+import {
+    BrowserRouter as Router,
+    Link,
+    Switch,
+    Route
+} from 'react-router-dom'
 import axios from 'axios'
+
 
 
 const GETUSER_URL = "https://dummyapi.io/data/api/user?limit=5";
 const APP_ID = "5f640ce71c8c926f48ba47af";
 
-function Users() {
+function Users(props) {
 
     const [ users, setUsers ] = useState([])
 
@@ -21,28 +28,30 @@ function Users() {
     }, [])
 
     return (
-        <div className="users__container">
-            <p style={{color: 'gray', fontWeight: '600'}}>Suggestions For You</p>
-            {
-                users.map(user => {
-                    return(
-                        <div className="users__avatarAndFollowButton">
-                        <div className="users__avatar">
-                            <Avatar
-                                alt={user.firstName}
-                                src={user.picture}
-                            />
+        <Router>
+            <div className="users__container">
+                <p style={{color: 'gray', fontWeight: '600'}}>Suggestions For You</p>
+                {
+                    users.map(user => {
+                        return(
+                            <div className="users__avatarAndFollowButton">
+                            <div className="users__avatar">
+                                <Avatar
+                                    alt={user.firstName}
+                                    src={user.picture}
+                                />
+                            </div>
+                            <div className="users__nameAndStatus">
+                            <strong>{user.firstName}</strong>
+                                <small style={{color: 'gray'}}>New to instagram</small>
+                            </div>
                         </div>
-                        <div className="users__nameAndStatus">
-                        <strong>{user.firstName}</strong>
-                            <small style={{color: 'gray'}}>New to instagram</small>
-                        </div>
-                        <Button style={{color: '#0095F6', fontSize: '11px', fontWeight: '600'}} variant="text" disableFocusRipple disableTouchRipple disableElevation>FOLLOW</Button>
-                    </div>
-                    )
-                })
-            }
-        </div>
+                        )
+                    })
+                }
+
+            </div>
+        </Router>
     )
 }
 

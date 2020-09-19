@@ -17,6 +17,8 @@ import Alert from '@material-ui/lab/Alert';
 import CloseIcon from '@material-ui/icons/Close';
 import Users from './components/Users'
 
+
+
 // Modal styles 
 
 const useStyles = makeStyles((theme) => ({
@@ -41,11 +43,11 @@ const useStyles = makeStyles((theme) => ({
 
 // Requests Endpoints
 
-const GETPOSTS_URL = "https://dummyapi.io/data/api/post?limit=5";
+const GETPOSTS_URL = "https://dummyapi.io/data/api/post?limit=15";
 const APP_ID = "5f640ce71c8c926f48ba47af";
 
 
-function App() {
+function App(props) {
 
   const classes = useStyles();
 
@@ -104,13 +106,14 @@ function App() {
 
   return (
     <div className="app__container">
+
       <Snackbar open={successAlert} autoHideDuration={5000}  onTouchCancel onClose={!successAlert} TransitionProps={Slide}>
         <Alert onClose={() => setSuccessAlert(false)} severity="success">
           Upload successful.
         </Alert>
       </Snackbar>
       <Snackbar open={failedAlert} autoHideDuration={5000}  onTouchCancel onClose={!failedAlert} TransitionProps={Slide}>
-        <Alert onClose={() => setSuccessAlert(false)} severity="error">
+        <Alert onClose={() => setFailedAlert(false)} severity="error">
           Unabled to post - Must contain display name and image .
         </Alert>
       </Snackbar>
